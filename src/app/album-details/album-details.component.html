@@ -1,0 +1,33 @@
+    <h1>{{photos.length}} Photos in album {{albumId}} </h1>
+
+    <a [routerLink]="['/album/upload', albumId]">
+        Upload Photo
+    </a>
+    
+    <div class="row">
+        <div class="row" *ngFor="let photo of photos">
+                
+        <div class="col-sm-6">
+            <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title"> {{photo.createdBy}} </h5>
+                        <p class="card-text">
+                            <a href="">
+                                <div *ngIf="!photo.photoUrl">
+                                    <img class="card-img-top" src="{{defaultImageUrl}}" >                             
+                                </div>
+                                <div *ngIf="photo.photoUrl">
+                                    <img class="card-img-top" src="{{photo.photoUrl}}" >                            
+                                </div>                                
+                            </a> 
+                        </p>
+                        <a href="#" class="btn btn-primary">{{photo.createdBy}}</a>
+                    </div>
+                </div>
+            </div>
+            <br/>
+        </div>    
+    </div>
+
+
+

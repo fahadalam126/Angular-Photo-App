@@ -1,0 +1,9 @@
+<h1>Upload Photos in album {{albumId}}</h1>
+
+<angular-file-uploader 
+      [config]="afuConfig"
+      (ApiResponse)="fileUploaded($event)">
+</angular-file-uploader>
+
+<input type="button" class="btn btn-primary btn-sm afu-select-btn" value="Go Back" onclick="history.back(-1)" />
+
