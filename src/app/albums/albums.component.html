@@ -1,0 +1,14 @@
+<div *ngIf="myName">
+    <h1>All Albums for {{myName}}!</h1>
+</div>
+<div *ngIf="!myName">
+    <h1>All My Albums!</h1>
+</div>
+
+<div *ngFor="let album of albums">
+       <h2> {{album.title}} </h2>
+       
+       <a href="/album/{{album.id}}">
+            <img src="{{album.coverPhotoUrl}}" width="200"/>
+        </a>
+</div>
