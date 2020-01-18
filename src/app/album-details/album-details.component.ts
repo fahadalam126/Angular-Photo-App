@@ -14,7 +14,7 @@ export class AlbumDetailsComponent implements OnInit {
   private albumId: String;
   public photos: Photo[] = [];
 
-  public defaultImageUrl = "http://saveabandonedbabies.org/wp-content/uploads/2015/08/default.png";
+  public defaultImageUrl = "https://thednetworks.com/wp-content/uploads/2012/01/picture_not_available_400-300.png";
   
   constructor(
     private route: ActivatedRoute, 

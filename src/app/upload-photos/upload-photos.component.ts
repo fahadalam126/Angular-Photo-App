@@ -10,7 +10,7 @@ import { PhotoService } from '../photo.service';
 export class UploadPhotosComponent implements OnInit {
 
   albumId = "";
-
+  
   afuConfig = {
     uploadAPI: {
       url:"http://ec2-54-218-206-93.us-west-2.compute.amazonaws.com:7000/api/files/upload"
@@ -23,7 +23,6 @@ export class UploadPhotosComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
     this.route.paramMap.subscribe(params => {
       this.albumId = params.get('albumId');     
     });
@@ -31,14 +30,14 @@ export class UploadPhotosComponent implements OnInit {
 
   fileUploaded(uploadEvent){
     var uploadedFile = JSON.parse(uploadEvent.responseText);
-    console.log("Upload details:", uploadEvent.fileId);
-    this.photoService.savePhoto(uploadEvent.fileId, this.albumId);
+    console.log("Upload details:", uploadedFile.fileId);
+    this.photoService.savePhoto(uploadedFile.fileId, this.albumId);
 
-    this.photoService.savePhoto(uploadEvent.fileId, this.albumId)
+    this.photoService.savePhoto(uploadedFile.fileId, this.albumId)
     .subscribe(
       result => console.log("Photo upload response", result),
       err => console.error('Got an error: ' + err),
       () => console.log('Got a complete notification')
-      ); 
+    ); 
   }
 }

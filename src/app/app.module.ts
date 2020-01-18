@@ -34,8 +34,7 @@ import { UploadPhotosComponent } from './upload-photos/upload-photos.component';
     HttpClientModule,
     AngularFileUploaderModule,
     AngularFireAuthModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    
+    AngularFireModule.initializeApp(environment.firebaseConfig),  
   ],
   providers: [AuthenticationService],
   bootstrap: [AppComponent]
