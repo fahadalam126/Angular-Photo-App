@@ -1,33 +1,42 @@
-    <h1>{{photos.length}} Photos in album {{albumId}} </h1>
+<div class="card">
+    <div class="card-body">
+        <a [routerLink]="['/albums']">
+            <button type="button" class="btn btn-outline-primary float-left "> Back to All Albums </button>
+        </a>
+        <a [routerLink]="['/upload-photo', albumId, albumTitle]">
+            <button type="button" class="btn btn-outline-primary float-right"> Upload Photo</button>
+        </a>
+    </div>
+</div>
 
-    <a [routerLink]="['/album/upload', albumId]">
-        Upload Photo
-    </a>
+<h1>{{photos.length}} Photos in album {{albumTitle}} </h1>
     
-    <div class="row">
-        <div class="row" *ngFor="let photo of photos">
-                
+<div class="row">
+    <div class="row" *ngFor="let photo of photos">
         <div class="col-sm-6">
             <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title"> {{photo.createdBy}} </h5>
-                        <p class="card-text">
-                            <a href="">
-                                <div *ngIf="!photo.photoUrl">
-                                    <img class="card-img-top" src="{{defaultImageUrl}}" >                             
-                                </div>
-                                <div *ngIf="photo.photoUrl">
-                                    <img class="card-img-top" src="{{photo.photoUrl}}" >                            
-                                </div>                                
-                            </a> 
-                        </p>
-                        <a href="#" class="btn btn-primary">{{photo.createdBy}}</a>
-                    </div>
+                <div class="card-body">
+                    <h5 class="card-title"> {{photo.createdBy}} </h5>
+                    <p class="card-text">
+                        <a [routerLink]="['/photo', photo.id, photo.photoUrl]">
+                            <div *ngIf="!photo.photoUrl">
+                                <img class="card-img-top" src="{{defaultImageUrl}}">                             
+                            </div>
+                            <div *ngIf="photo.photoUrl">
+                                <img class="card-img-top" src="{{photo.photoUrl}}">                            
+                            </div>                                
+                        </a> 
+                    </p>                        
+                    <input type="button" #button (click)="makeCoverPhoto(button.name)" name="{{photo.photoUrl}}" class="btn btn-primary" value="Make Cover Photo">
+                    <br/>
+                    <br/>  
+                    <input type="button" #profilePhoto (click)="makeProfilePhoto(profilePhoto.name)" name="{{photo.photoUrl}}" class="btn btn-primary" value="Make Profile Photo">
                 </div>
             </div>
-            <br/>
-        </div>    
-    </div>
+        </div>
+        <br/>
+    </div>    
+</div>
 
 
 

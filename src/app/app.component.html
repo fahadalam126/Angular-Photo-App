@@ -3,7 +3,6 @@
     <input type="password" [(ngModel)]="password" placeholder="password">
 
     <button (click)="signUp()">Sign Up</button>
-
     <button (click)="signIn()">Login</button>
 </div>
 
@@ -21,7 +20,7 @@
                     <a class="nav-link" [routerLink]="['/']">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Profile</a>
+                        <a class="nav-link" [routerLink]="['/profile/me']">Profile</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" [routerLink]="['/albums']">Albums</a>
