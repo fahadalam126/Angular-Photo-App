@@ -12,7 +12,6 @@ export class AuthenticationService {
   constructor(private angularFireAuth: AngularFireAuth) {
     this.userData = angularFireAuth.authState;
   }
-
   /* Sign up */
   SignUp(email: string, password: string) {
     this.angularFireAuth
@@ -25,7 +24,6 @@ export class AuthenticationService {
         console.log('Something is wrong:', error.message);
       });    
   }
-
   /* Sign in */
   SignIn(email: string, password: string) {
     this.angularFireAuth
@@ -38,12 +36,10 @@ export class AuthenticationService {
         console.log('Something is wrong:',err.message);
       });
   }
-
   /* Sign out */
   SignOut() {
     this.angularFireAuth
       .auth
       .signOut();
   }  
-
 }
