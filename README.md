@@ -1,1 +1,0 @@
-# Angular-Photo-App
