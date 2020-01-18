@@ -1,19 +1,27 @@
+<div class="card">
+    <div class="card-body">
+        <a [routerLink]="['/albums/create']">
+            <button type="button" class="btn btn-outline-primary float-right"> Create Album</button>
+        </a>
+    </div>
+</div>
+
 <div *ngIf="myName">
     <h1>{{albums.length}} Albums for {{myName}}!</h1>
 </div>
+
 <div *ngIf="!myName">
     <h1>All My Albums!</h1>
 </div>
 
 <div class="row">
-    <div class="row" *ngFor="let album of albums">
-              
+    <div class="row" *ngFor="let album of albums">    
        <div class="col-sm-6">
            <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title"> {{album.title}} </h5>
                     <p class="card-text">
-                        <a href="/album/{{album.id}}">
+                        <a href="/album/{{album.id}}/{{album.title}}">
                             <img class="card-img-top" src="{{album.coverPhotoUrl}}" alt="{{album.title}}">
                         </a> 
                     </p>

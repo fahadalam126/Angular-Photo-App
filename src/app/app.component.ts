@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthenticationService } from './shared/authentication.service';
+import { UserService } from './user.service';
 
 @Component({
   selector: 'app-root',
@@ -12,10 +13,20 @@ export class AppComponent {
   email: string;
   password: string;
 
-  constructor(public authenticationService: AuthenticationService) {}
+  constructor(public authenticationService: AuthenticationService,
+    public userService: UserService
+    ) {}
 
   signUp() {
     this.authenticationService.SignUp(this.email, this.password);
+    
+    this.userService.registerUser(this.email, this.email)
+    .subscribe(
+      result => console.log("Register user response", result),
+      err => console.error('Got an error in tegister user: ' + err),
+      () => console.log('Got a complete notification')
+    ); 
+
     this.email = ''; 
     this.password = '';
   }

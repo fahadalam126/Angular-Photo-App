@@ -1,10 +1,9 @@
 export class Photo {
-
     id: string;
     albumId: string;
     fileId: string;
     thumbnailUrl: string;
-    photourl: string;
+    photoUrl: string;
     dateCreated: string;
     createdBy: string;  
 }

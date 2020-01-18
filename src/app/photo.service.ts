@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
+import { Photo } from './Photo';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class PhotoService {
     var fileUrl = this.apiBaseUrl + "/files/show/" + fileId;
 
     console.log("Id token inside Photo Service", this.idToken);
-    console.log("File URL token inside Photo Service", fileId);
+    console.log("File URL token inside Photo Service", fileUrl);
     console.log("Album Id token inside Photo Service", albumId);
 
     var photo: Photo = {
@@ -26,13 +27,14 @@ export class PhotoService {
       albumId: albumId,
       fileId: "",
       thumbnailUrl: fileUrl,
-      photourl: fileUrl,
+      photoUrl: fileUrl,
       dateCreated: "",
       createdBy: "", 
     };
 
     var headers = this.getHeaders();
     return this.http.post(this.apiBaseUrl + "/photos", photo, {headers});
+
     //console.log("Photo upload response:", response);
     //return this.http.get(this.apiBaseUrl + "/albums", {headers});
   }
